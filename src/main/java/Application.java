@@ -12,7 +12,7 @@ public class Application {
         CityDao cityDao = new CityDaoImpl();
 
 //        Работает:
-        City newCity = new City(29, "NY");
+        City newCity = new City(29, "NY"); //- А ЧТО ТУТ ДЕЛАТЬ С КОНСТРУКТОРОМ ТЕПЕРЬ ?? РУГАЕТСЯ
         cityDao.addCity(newCity);
 //        Employee E1 = new Employee("Фил", "Хит", "М", 50, newCity);
 //        employeeDAO.addEmployee(E1);

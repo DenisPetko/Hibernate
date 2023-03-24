@@ -1,6 +1,16 @@
 package model;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
+
 import javax.persistence.*;
-import java.util.Objects;
+import java.util.List;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@RequiredArgsConstructor
 @Entity
 @Table(name = "city")
 public class City {
@@ -12,50 +22,7 @@ public class City {
     @Column(name = "city_name")
     private String cityName;
 
-    public City(int cityID, String cityName) {
-        this.cityID = cityID;
-        this.cityName = cityName;
-    }
-
-    public City() {
-
-    }
-
-    public int getCityID() {
-        return cityID;
-    }
-
-    public void setCityID(int cityID) {
-        this.cityID = cityID;
-    }
-
-    public String getCityName() {
-        return cityName;
-    }
-
-    public void setCityName(String cityName) {
-        this.cityName = cityName;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        City city = (City) o;
-        return cityID == city.cityID && Objects.equals(cityName, city.cityName);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(cityID, cityName);
-    }
-
-    @Override
-    public String  toString() {
-        return "City{" +
-                "cityID=" + cityID +
-                ", cityName='" + cityName + '\'' +
-                '}';
-    }
+    @OneToMany(mappedBy = "city_id")
+    private List<Employee> emploeeList;
 
 }
