@@ -1,16 +1,11 @@
 package model;
-import lombok.AllArgsConstructor;
-import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
 
 import javax.persistence.*;
 import java.util.List;
 
-@Data
+//@Data
 @NoArgsConstructor
-@AllArgsConstructor
-@RequiredArgsConstructor
 @Entity
 @Table(name = "city")
 public class City {
@@ -22,7 +17,19 @@ public class City {
     @Column(name = "city_name")
     private String cityName;
 
-    @OneToMany(mappedBy = "city_id")
+    @OneToMany(mappedBy = "city")
     private List<Employee> emploeeList;
 
+    public City(int cityID, String cityName) {
+        this.cityID = cityID;
+        this.cityName = cityName;
+    }
+
+    @Override
+    public String toString() {
+        return "City{" +
+                "cityID=" + cityID +
+                ", cityName='" + cityName + '\'' +
+                '}';
+    }
 }

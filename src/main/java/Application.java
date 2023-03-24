@@ -1,4 +1,5 @@
 import model.City;
+import model.Employee;
 import service.CityDao;
 import service.EmployeeDAO;
 import service.impl.CityDaoImpl;
@@ -12,25 +13,27 @@ public class Application {
         CityDao cityDao = new CityDaoImpl();
 
 //        Работает:
-        City newCity = new City(29, "NY"); //- А ЧТО ТУТ ДЕЛАТЬ С КОНСТРУКТОРОМ ТЕПЕРЬ ?? РУГАЕТСЯ
+        City newCity = new City(30, "Рязань");
         cityDao.addCity(newCity);
-//        Employee E1 = new Employee("Фил", "Хит", "М", 50, newCity);
-//        employeeDAO.addEmployee(E1);
 
 //        Работает:
-//        System.out.println(employeeDAO.getEmployeeByID(6));
+        Employee E1 = new Employee("Фил", "Хит", "М", 50, newCity);
+        employeeDAO.addEmployee(E1);
+
+//        Работает:
+        System.out.println(employeeDAO.getEmployeeByID(6));
 
 //        Рботает:
-//        for (Employee employee : employeeDAO.getAllEmployees()) {
-//            System.out.println(employee);
-//        }
+        for (Employee employee : employeeDAO.getAllEmployees()) {
+            System.out.println(employee);
+        }
 
 //        Работает:
-//        Employee E2 = new Employee(37, "Денис", "Петко", "М", 40, 2);
-//        employeeDAO.updateEmployeeById(E2);
+        Employee E2 = new Employee("Den", "Pekto", "M", 30);
+        employeeDAO.updateEmployeeById(E2);
 
 //        Работает
-//        employeeDAO.deleteEmployee(E2);
+        employeeDAO.deleteEmployee(E2);
     }
 }
 
